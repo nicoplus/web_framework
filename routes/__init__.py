@@ -67,11 +67,6 @@ def redirect(location, headers=None):
 
 
 def login_required(route_function):
-    """
-    这个函数看起来非常绕
-    所以你不懂也没有关系
-    就直接复制粘贴拿来用就好了
-    """
 
     def f(request):
         u = current_user(request)
@@ -89,7 +84,6 @@ def error(request, code=404):
     根据 code 返回不同的错误响应
     目前只有 404
     """
-    # 之前上课我说过不要用数字来作为字典的 key
     # 但是在 HTTP 协议中 code 都是数字似乎更方便所以打破了这个原则
     e = {
         404: b'HTTP/1.x 404 NOT FOUND\r\n\r\n<h1>NOT FOUND</h1>',
